@@ -63,14 +63,14 @@ func (h *Handler) Shorten(w http.ResponseWriter, r *http.Request) {
 func (h *Handler) Expand(w http.ResponseWriter, r *http.Request) {
 	uID := chi.URLParam(r, "id")
 
-	fullUrl, err := h.service.Expand(uID)
+	fullURL, err := h.service.Expand(uID)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	if fullUrl == "" {
+	if fullURL == "" {
 		http.Error(w, "can't find full URL", http.StatusNotFound)
 		return
 	}
-	http.Redirect(w, r, fullUrl, http.StatusTemporaryRedirect)
+	http.Redirect(w, r, fullURL, http.StatusTemporaryRedirect)
 }

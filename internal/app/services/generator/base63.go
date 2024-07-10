@@ -13,7 +13,7 @@ func (HashGenerator) GenerateIDFromString(str string) (string, error) {
 	if str == "" {
 		return "", errors.New("empty string to generate id from")
 	}
-	hash, err := hashUrl(str)
+	hash, err := hashURL(str)
 	if err != nil {
 		return "", err
 	}
@@ -21,7 +21,7 @@ func (HashGenerator) GenerateIDFromString(str string) (string, error) {
 	return result, nil
 }
 
-func hashUrl(url string) (uint32, error) {
+func hashURL(url string) (uint32, error) {
 	h := fnv.New32()
 	_, err := h.Write([]byte(url))
 	if err != nil {
