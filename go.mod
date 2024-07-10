@@ -1,5 +1,5 @@
 module github.com/neogan74/url-shortner
 
-go 1.22.5
+go 1.21
 
 require github.com/go-chi/chi/v5 v5.1.0
