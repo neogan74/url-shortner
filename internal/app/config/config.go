@@ -25,7 +25,7 @@ func getHost() string {
 func getPort() string {
 	p := os.Getenv("PORT")
 	if p == "" {
-		p = "8080"
+		p = "8088"
 	}
 	return p
 }
