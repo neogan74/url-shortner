@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+
 	"github.com/neogan74/url-shortner/internal/app/config"
 	"github.com/neogan74/url-shortner/internal/app/server"
 	"github.com/neogan74/url-shortner/internal/app/services"
@@ -14,6 +16,8 @@ func main() {
 	gen := &generator.HashGenerator{}
 	service := services.New(repo, gen, cfg)
 	srv := server.New(cfg, service)
+
+	fmt.Println("Starting server on http://localhost:8088")
 
 	srv.Run()
 }
